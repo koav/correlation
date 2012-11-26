@@ -1,0 +1,75 @@
+﻿<html>
+<head>
+    <title>关联分析 - 网格管理平台</title>
+    <link rel="Stylesheet" type="text/css" href="../res/css/style.css" />
+    <link rel="Stylesheet" type="text/css" href="../res/css/datatable.css" />
+    <script type="text/javascript" src="../res/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../res/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../res/js/jquery.dataTables.fnReloadAjax.js"></script>
+    <script type="text/javascript" src="../res/js/datatable.js"></script>
+</head>
+<body>
+    <div id="body_container" class="body_container">
+        <div id="menu" class="menu">
+            <ul>
+                <li><a href="index.html">主页</a></li>
+                <li><a href="correlation.html">关联分析</a></li>
+                <li><a href="ctree.html">树状展示</a></li>
+                <li><a href="cchord.html">弦图展示</a></li>
+            </ul>
+        </div>
+        <div id="title" class="title">
+            <h1>
+                关联分析</h1>
+        </div>
+        <div id="container" class="container">
+            <div id="conditions" class="conditions">
+                <label>属性挖掘:</label>
+                <select class="filter_input" id="selAttr">
+                    <option value="0">火灾等级</option>
+                    <option value="1">救援速度</option>
+                    <option value="2">气温范围</option>
+                </select>
+                
+                <label>过滤:</label>
+                <input type="text" id="txtFilter" class="filter_input" />
+                
+                <label>支持度:</label>
+                <input type="text" id="txtSupport" class="filter_input" />
+                
+                <label>置信度:</label>
+                <input type="text" id="txtConfidence" class="filter_input" />
+                
+                <button id="btnDig" class="inputbut">分析</button>
+            </div>
+            <div id="table_container">
+                <table id="correlation_result">
+                    <thead>
+                        <th>
+                            属性值
+                        </th>
+                        <th>
+                            相关项
+                        </th>
+                        <th>
+                            数目
+                        </th>
+                        <th>
+                            支持度
+                        </th>
+                        <th>
+                            置信度
+                        </th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clear" ></div>
+        </div>
+        <div id="footer" class="footer">
+            <span>Copyright © 1998 - 2012 <a href="http://www.sjtu.edu.cn">SJTU</a>. All Rights Reserved</span>
+        </div>
+    </div>
+</body>
+</html>

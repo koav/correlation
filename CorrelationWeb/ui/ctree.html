@@ -1,0 +1,98 @@
+﻿<html>
+<head>
+    <title>树状展示 - 网格管理平台</title>
+    <link rel="Stylesheet" type="text/css" href="../res/css/style.css" />
+    <link rel="Stylesheet" type="text/css" href="../res/css/article.css" />
+    
+    <script type="text/javascript" src="../res/js/deps/d3.min.js"></script>
+	<script type="text/javascript" src="../res/js/deps/d3.csv.js"></script>
+    <script type="text/javascript" src="../res/js/deps/d3.layout.min.js"></script>
+    <script type="text/javascript" src="../res/js/deps/raphael.min.js"></script>
+    <script type="text/javascript" src="../res/js/deps/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="../res/js/deps/eventproxy.js"></script>
+
+	<script type="text/javascript" src="../res/js/sea.js"></script>
+
+  <STYLE type="text/css">
+#chart {
+    border-top: 1px dashed #F00;
+    border-bottom: 1px dashed #F00;
+}
+.textArea {
+    border: 2px solid black;
+    color: black;
+    font-family: monospace;
+    height: 3in;
+    overflow: auto;
+    padding: 0.5em;
+    width: 750px;
+}
+</STYLE>
+</head>
+<body>
+    <div id="body_container" class="body_container">
+        <div id="menu" class="menu">
+            <ul>
+                <li><a href="index.html">主页</a></li>
+                <li><a href="correlation.html">关联分析</a></li>
+                <li><a href="ctree.html">树状展示</a></li>
+                <li><a href="cchord.html">弦图展示</a></li>
+            </ul>
+        </div>
+        <div id="title" class="title">
+            <h1>
+                树状展示</h1>
+        </div>
+        <div id="container" class="container">
+            
+            <div id="conditions" class="conditions">
+        <label>属性挖掘:</label>
+        <select class="filter_input" id="selAttr">
+            <option value="0">火灾等级</option>
+            <option value="1">救援速度</option>
+            <option value="2">气温范围</option>
+        </select>
+        
+        <label>过滤:</label>
+        <input type="text" id="txtFilter" class="filter_input" />
+        
+        <label>支持度:</label>
+        <input type="text" id="txtSupport" class="filter_input" />
+        
+        <label>置信度:</label>
+        <input type="text" id="txtConfidence" class="filter_input" />
+        
+        <button id="btnDig" class="inputbut">分析</button>
+    </div>
+
+    <div id="chart"></div>
+
+    <script type="text/javascript" src="../res/js/request.js"></script>
+    <script type="text/javascript">
+        seajs.config({
+            alias: {
+                'datav': 'datav.js',
+                'tree': 'libs/tree.js'
+            }
+        });
+
+        $('#btnDig').click(function () {
+            $('#chart svg').remove();
+            seajs.use(["tree", "datav"], function (Tree, DataV) {
+                var tree = new Tree("chart", { width: 960 });
+                DataV.csv(ajaxUrl("../Tree.aspx"), function (source) {
+                    tree.setSource(source);
+                    tree.render();
+                });
+            });
+        });
+    </script>
+
+        </div>
+        <div id="footer" class="footer">
+            <span>Copyright © 1998 - 2012 <a href="http://www.sjtu.edu.cn">SJTU</a>. All Rights
+                Reserved</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿.article
+{
+    text-align:left;
+    margin: 10px 15px 10px 15px;
+}
+
+.article p
+{
+    text-indent: 2em;
+}

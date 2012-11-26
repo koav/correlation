@@ -1,0 +1,76 @@
+﻿.dataTables_wrapper
+{
+    border: 1px solid #cbcbcb;
+    background-color: #e6e6e6;
+    padding: 5px;
+    overflow: auto;
+	zoom: 1; /*兼容IE6*/
+}
+
+.dataTable
+{
+    width: 100%;
+  /*  border: 1px dashed #685757; */
+}
+
+.dataTables_filter
+{
+    float: right;
+    color: #5b5b5b;
+}
+
+.dataTables_info
+{
+    display: inline;
+    float: right;
+    padding-right: 5px;
+    color: #5b5b5b;
+	margin: 10px 0 0 0;
+}
+
+table thead th
+{
+    background-color: #567eb9;
+}
+
+.sorting, .sorting_asc, .sorting_desc
+{
+    cursor: pointer;
+    background-position: 4px 50%;
+    background-repeat: no-repeat;
+    padding-right: 10px;
+    padding-left: 12px;
+}
+
+.sorting
+{
+    background-image: url(../images/sort_unsort.png);
+}
+
+.sorting_asc
+{
+    background-image: url(../images/sort_asc.png);
+}
+
+.sorting_desc
+{
+    background-image: url(../images/sort_desc.png);
+}
+
+.sorting:hover, .sorting_asc:hover, .sorting_desc:hover
+{
+    background-color: #00336c;
+    color: #e6e6e6;
+}
+
+tr.odd
+{
+    background-color: #fff;
+	text-align: left;
+}
+
+tr.even
+{
+    background-color: #d2dded;
+	text-align: left;
+}
